@@ -26,3 +26,22 @@ const averagePair = (arr, target) => {
 // console.log(averagePair([], 4));
 
 // Multiple Pointers - isSubsequence
+
+const isSubsequence = (sub, str) => {
+  let subPointer = 0;
+  // let strPointer = 0;
+  for (let i = 0; i < str.length; i++) {
+    console.log('////////////////');
+    console.log('str pointer:', str[i]);
+    console.log('sub pointer:', sub[subPointer]);
+    if (str[i] === sub[subPointer]) {
+      subPointer++;
+    }
+    if (subPointer > sub.length - 1) {
+      return true;
+    }
+  }
+  return false;
+};
+
+console.log(isSubsequence('abc', 'acb'));
