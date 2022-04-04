@@ -25,32 +25,69 @@
 
 // maxSubarraySum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4);
 
-const minSubArrayLen = (arr, target) => {
+// const minSubArrayLen = (arr, target) => {
+//   let left = 0;
+//   let right = 0;
+//   let currentSum = arr[0];
+//   let minLength = Infinity;
+//   while (left <= arr.length - 1) {
+//     if (currentSum < target) {
+//       if (right < arr.length - 1) {
+//         right++;
+//         currentSum += arr[right];
+//       } else {
+//         left = arr.length;
+//       }
+//     } else {
+//       if (right - left + 1 < minLength) {
+//         minLength = right - left + 1;
+//       }
+//       left++;
+//       currentSum -= arr[left - 1];
+//     }
+//   }
+//   if (minLength === Infinity) {
+//     return 0;
+//   } else {
+//     return minLength;
+//   }
+// };
+
+// console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 55));
+
+// debug this:
+const findLongestSubstring = (str) => {
+  if (str.length < 2) {
+    return str.length;
+  }
   let left = 0;
   let right = 0;
-  let currentSum = arr[0];
-  let minLength = Infinity;
-  while (left <= arr.length - 1) {
-    if (currentSum < target) {
-      if (right < arr.length - 1) {
-        right++;
-        currentSum += arr[right];
+  let longestSubLength = 1;
+  let currentSubMap = {};
+  let mode = 'grow';
+  currentSubMap[str[0]] = 1;
+  while (left <= str.length - 1) {
+    console.log('///////////////////');
+    console.log(mode);
+    if (mode === 'grow') {
+      right++;
+      if (right - left > longestSubLength) {
+        longestSubLength = right - left;
+      }
+      if (currentSubMap[str[right]]) {
+        mode = 'shrink';
       } else {
-        left = arr.length;
+        currentSubMap[str[right]] = 1;
       }
     } else {
-      if (right - left + 1 < minLength) {
-        minLength = right - left + 1;
+      if (currentSubMap[str[left]] === currentSubMap[str[right]]) {
+        mode = 'grow';
       }
+      delete currentSubMap[str[left]];
       left++;
-      currentSum -= arr[left - 1];
     }
   }
-  if (minLength === Infinity) {
-    return 0;
-  } else {
-    return minLength;
-  }
+  return longestSubLength;
 };
 
-console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 55));
+console.log(findLongestSubstring('thisisawesome'));
