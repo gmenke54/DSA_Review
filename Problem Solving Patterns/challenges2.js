@@ -29,7 +29,6 @@ const averagePair = (arr, target) => {
 
 const isSubsequence = (sub, str) => {
   let subPointer = 0;
-  // let strPointer = 0;
   for (let i = 0; i < str.length; i++) {
     console.log('////////////////');
     console.log('str pointer:', str[i]);
