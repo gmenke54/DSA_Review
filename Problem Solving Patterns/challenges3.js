@@ -66,28 +66,34 @@ const findLongestSubstring = (str) => {
   let currentSubMap = {};
   let mode = 'grow';
   currentSubMap[str[0]] = 1;
-  while (left <= str.length - 1) {
+  while (right <= str.length - 1) {
     console.log('///////////////////');
+    console.log(longestSubLength);
+    console.log(currentSubMap);
     console.log(mode);
+    console.log(right);
+    console.log(left);
+    if (Object.keys(currentSubMap).length > longestSubLength) {
+      longestSubLength = Object.keys(currentSubMap).length;
+    }
     if (mode === 'grow') {
       right++;
-      if (right - left > longestSubLength) {
-        longestSubLength = right - left;
-      }
+      console.log('line 77', str[right], currentSubMap[str[right]]);
       if (currentSubMap[str[right]]) {
         mode = 'shrink';
       } else {
         currentSubMap[str[right]] = 1;
       }
     } else {
-      if (currentSubMap[str[left]] === currentSubMap[str[right]]) {
+      if (str[left] === str[right]) {
         mode = 'grow';
+      } else {
+        delete currentSubMap[str[left]];
       }
-      delete currentSubMap[str[left]];
       left++;
     }
   }
   return longestSubLength;
 };
 
-console.log(findLongestSubstring('thisisawesome'));
+console.log('FINAL', findLongestSubstring('thecatinthehat'));
