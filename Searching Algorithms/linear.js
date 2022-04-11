@@ -17,3 +17,8 @@ const search = (arr, target) => {
 console.log(search([1, 2, 3, 4, 5], 2));
 
 // this is used by built in js functions such as indexOf()
+
+// bigO time complexity
+// best case -> O(1)
+// worst case -> O(n)
+// average trend -> O(n)
