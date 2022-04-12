@@ -2,6 +2,15 @@
 // only works on sorted data
 // much much faster than linear search
 
+// Big O Notation:
+// Time Complexity:
+// Best Case --> O(1)
+// Worst/Average Case --> O(log n)
+// --> for 16 elements --> 4 steps
+// --> for 32 elements --> 5 steps
+// log base 2 of n
+// O(log n) --> nearly as fast as constant time
+
 // example:
 
 const binarySearch = (arr, target) => {
