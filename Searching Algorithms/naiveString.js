@@ -25,4 +25,4 @@ const searchForSub = (string, target) => {
   return counter;
 };
 
-console.log(searchForSub('ozmgnnnnomzgnnnnwomng', 'omg'));
+console.log(searchForSub('lorie loled', 'lo'));
