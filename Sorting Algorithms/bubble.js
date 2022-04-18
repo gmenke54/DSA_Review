@@ -8,18 +8,22 @@
 
 const bubbleSort = (arr) => {
   // end = arr.length;
+  let sortComplete;
   for (let i = arr.length; i > 0; i--) {
     console.log('////////////////////');
+    sortComplete = true;
     for (let j = 0; j < i - 1; j++) {
       console.log(arr[j], arr[j + 1]);
       if (arr[j] > arr[j + 1]) {
+        sortComplete = true;
         var temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
       }
     }
+    if (sortComplete) break;
   }
   return arr;
 };
 
-console.log(bubbleSort([37, 45, 29, 8, 9, 3, 7, 73, 23, 43, 1]));
+console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 11, 9, 10]));
