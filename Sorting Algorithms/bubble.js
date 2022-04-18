@@ -27,3 +27,7 @@ const bubbleSort = (arr) => {
 };
 
 console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 11, 9, 10]));
+
+// Big O Notation:
+// Worst case: n^2
+// Best case: n
