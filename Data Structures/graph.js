@@ -24,6 +24,7 @@ const depthFirstPrint = (graph, source) => {
 // depthFirstPrint(graph, 'a');
 
 // depth first recursively:
+// note: dont need base case because the nodes with no adjacent nodes are inherently base cases
 const depthRecursion = (graph, source) => {
   console.log(source);
   for (let neighbor of graph[source]) {
@@ -31,7 +32,7 @@ const depthRecursion = (graph, source) => {
   }
 };
 
-depthRecursion(graph, 'a');
+// depthRecursion(graph, 'a');
 
 const breadthFirstPrint = (graph, source) => {
   const queue = [source];
